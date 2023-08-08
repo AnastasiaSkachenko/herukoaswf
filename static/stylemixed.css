@@ -1,0 +1,181 @@
+body {
+  background: url('https://i.pinimg.com/564x/cf/f2/a4/cff2a45a43b65be8ce2a0c005c6ad5c5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+ 
+
+.header {
+  top: 5px;
+  color: rgb(94,131,186);
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  margin-left: 500px;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.how-enter,
+.type-fraction {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.type-fraction {
+  margin-left: 270px;
+}
+
+
+.radio-input,
+.radio-input-mixed {
+  display:none; 
+  margin:10px;
+  margin-top: -1px; 
+  
+}
+
+.radio-label {
+  display:inline-block;
+  margin:-2px;
+  padding: 14px 35px;
+  background-color: #F0EEEE;
+  border: 1px solid #9B9898;
+  border-radius: 10px;
+}
+
+.radio-label:hover {
+  background-color: #C8D9E7;
+}
+
+input[type=radio]:checked + label{
+  background-color: #5E83BA;
+  color: white;
+}
+
+
+
+.range {
+  text-align: right;
+  margin-left: 250px;
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.range-label {
+  background-color: #F0EEEE;
+  border: 2px solid #9B9898;
+  margin: -3px;
+  padding: 7px 14px;
+}
+
+
+.math-part {
+  display: flex; 
+}
+ 
+
+.number-1,
+.number-2,
+.answer{
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.number-1 {
+  margin-left: 320px;
+}
+
+.number-2,
+.answer {
+  margin-left: 100px;
+}
+
+ 
+
+.part,
+.integer {
+  background: rgb(206, 219, 238);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+ 
+.integer {
+  height: 80px;
+  margin-right: 5px;
+  font-size: 50px;
+  width: 80px; 
+}
+
+
+ 
+.part {
+  height: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 50px;
+  font-size: 30px;
+}
+
+.line {
+   width: 50px;
+   height: 3px;
+   background-color: black;
+   margin: 2px
+}
+
+.operator {
+  margin-top: 140px;
+  margin-left: 100px;
+  width: 60px;
+  height: 50px;
+  border-color: #5E83BA;
+  background-color: rgb(224, 231, 243);
+  font-size: 45px;
+}
+
+.equeal {
+  font-size: 60px;
+  margin-top: 140px;
+  margin-left: 100px;
+}
+
+button {
+  margin-top: 100px;
+  margin-left: 740px;
+  background-color: #5E83BA;
+  width: 170px;
+  height: 45px;
+  color:white;
+  border-radius: 5px;
+  border-color: #5E83BA;
+  font-size: 30px;
+  box-shadow: none;
+  
+}
+
+.link-to-app {
+  display: block;
+  margin-top: 120px;
+  margin-left: 15px;
+  font-size: 20px; 
+}
+
+.message {
+  color: white;
+  background-color: #5E83BA ;
+  height: 45px;
+  width: 800px;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 450px;
+  padding-top: 25px;
+  opacity: 0.7;
+  border-radius: 15px;
+}

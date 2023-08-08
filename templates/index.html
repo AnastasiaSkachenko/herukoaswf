@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Action-simulator</title>
+    <link rel="stylesheet" href="{% static 'style_simple.css' %}" >
+  </head>
+  <body>
+    <h1 class="header" >Action simulator with fractions</h1>
+    <div class="options">
+      <div id="enter-type" class="how-enter">
+        <input class="radio-input" type="radio" id="yourself" name="enter-type" value="yourself" checked>
+        <label class="radio-label" for="yourself">Enter yourself</label>
+        <input class="radio-input" type="radio" id="random" name="enter-type" value="random" onclick="location.href='random';">
+        <label class="radio-label" for="random">Take random</label>
+      </div>
+      <div class="type-fraction">
+        <input class="radio-input" type="radio" id="simple" name="type-fraction" value="simple" checked>
+        <label class="radio-label" for="simple">Simple fraction</label>
+        <input class="radio-input-mixed" type="radio" id="mixed" name="type-fraction" value="mixed" onclick="location.href='mixed';">
+        <label class="radio-label" for="mixed">Mixed fraction</label>
+      </div>
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="math-part">
+        <div class="number-1"> 
+          <div class="fraction">
+            <input class="part" id="numerator_1" name="numerator_1" type="number" minlength="3">
+            <hr class="line"> 
+            <input class="part" id="denominator_1" name="denominator_1" type="number">
+          </div>
+        </div>
+        
+        <div>
+          <select class="operator" id="operator" name="operator" >
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">÷</option>        
+          </select>
+        </div>
+        <div class="number-2"> 
+          <div class="fraction">
+            <input class="part" id="numerator_2" name="numerator_2" type="number" >
+            <hr class="line"> 
+            <input class="part" id="denominator_2" name="denominator_2" type="number" >
+          </div>
+        </div>
+
+        <div>
+          <p class="equeal">=</p>
+        </div>
+
+        <div class="number-2"> 
+          {% if integer %}
+            <div class="integer-box">
+              <p class="integer">{{ integer }}</p>
+            </div>
+          {% endif %}
+          {% if numerator and denominator %}
+            <div class="fraction"> 
+              <p class="part">{{ numerator }}</p>
+              <hr class="line"> 
+              <p  class="part">{{ denominator }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="message">
+            {{message}}
+          </div> 
+        {% endfor %}
+      {% endif %}
+      <button class="count-button">Count</button>
+    </form>
+    <a href="{% url 'convertor' %}" class="link-to-app">Convertor binary numbers to decimal</a>
+    
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Action-simulator</title>
+    <link rel="stylesheet" href="{% static 'style_random.css' %}" >
+  </head>
+  <body>
+    <h1 class="header" >Action simulator with fractions</h1>
+    <form method="POST" class="form-c">
+      {% csrf_token %}
+      <div class="options">
+        <div id="enter-type" class="how-enter">
+          <input class="radio-input" type="radio" id="yourself" name="enter-type" value="yourself" onclick="location.href='http://127.0.0.1:8000/';">
+          <label class="radio-label" for="yourself">Enter yourself</label>
+          <input class="radio-input" type="radio" id="random" name="enter-type" value="random" checked>
+          <label class="radio-label" for="random">Take random</label>
+        </div>
+        <div class="type-fraction">
+          <input class="radio-input" type="radio" id="simple" name="type-fraction" value="simple" checked>
+          <label class="radio-label" for="simple">Simple fraction</label>
+          <input class="radio-input-mixed" type="radio" id="mixed" name="type-fraction" value="mixed" onclick="location.href='http://127.0.0.1:8000/random/mixed';">
+          <label class="radio-label" for="mixed">Mixed fraction</label>
+        </div> 
+          <div class="range">
+            <p> Choose range fot numbers:</p>
+            <input class="radio-input" type="radio" id="10" name="range" value="10" checked >
+            <label class="range-label" for="10">10</label>
+            <input class="radio-input" type="radio" id="20" name="range" value="20">
+            <label class="range-label" for="20">20</label>
+            <input class="radio-input" type="radio" id="50" name="range" value="50">
+            <label class="range-label" for="50">50</label>
+            <input class="radio-input" type="radio" id="100" name="range" value="100">
+            <label class="range-label" for="100">100</label>
+          </div> 
+      </div>
+      
+      <div class="second">
+        <div class="math-button"> 
+          <div class="math-part">
+            <div class="number-1"> 
+              <div class="fraction">
+                <p class="part">{{ numerator_1}}</p>
+                <hr class="line"> 
+                <p class="part">{{denominator_1}}</p>
+              </div>
+            </div>
+            
+            <div>
+              <p class="operator">{{ operator }}</p>
+            </div>
+    
+            <div class="number-2"> 
+              <div class="fraction">
+                <p class="part">{{ numerator_2}}</p>
+                <hr class="line"> 
+                <p class="part">{{denominator_2}}</p>
+              </div>
+            </div>
+    
+            <div>
+              <p class="equeal">=</p>
+            </div>  
+            
+            
+            
+          </div>
+          <input class="random-button" type="submit"  name="Random numbers" value="Random numbers">
+        </div>
+        
+        <div class="for-answer">
+          <button class="show-button">Show answer / clean spot</button>  
+          <div class="answer">  
+            {% if integer %}
+              <div class="integer-box">
+                <p class="integer">{{ integer }}</p>
+              </div>
+            {% endif %}
+            {% if numerator and denominator %}
+              <div class="fraction"> 
+                <p class="part">{{ numerator }}</p>
+                <hr class="line"> 
+                <p  class="part">{{ denominator }}</p>
+              </div>
+            {% endif %}
+          </div> 
+          
+           
+        </div>
+      </div>
+      
+    </form>   
+    <p class="hover-b"> Hover - show answer</p>
+    <p class="click-b"> Click - clean spots</p>   
+ 
+
+    
+
+
+    <a href="{% url 'convertor' %}" class="link-to-app">Convertor binary numbers to decimal</a>
+    
+  </body>
+</html>
